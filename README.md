@@ -9,7 +9,7 @@ An MVP mobile application built with Flutter to streamline classroom check-ins a
 
 ## 🌐 Deployment Link
 
-**Live Demo (Firebase Hosting):** [PASTE_YOUR_FIREBASE_URL_HERE]
+**Live Demo (Firebase Hosting):** https://smart-class-mfu-6731503015.web.app
 
 ## 🛠️ Setup & Installation
 
@@ -20,7 +20,7 @@ An MVP mobile application built with Flutter to streamline classroom check-ins a
 
 ### Instructions
 
-1. **Clone the Repo:** `git clone <your-repo-url>`
+1. **Clone the Repo:** https://github.com/TEERAPAT-SUKKASEM/smart-class-app.git
 2. **Install Dependencies:** `flutter pub get`
 3. **Run App:** `flutter run` (or `flutter run -d chrome` for web)
 
