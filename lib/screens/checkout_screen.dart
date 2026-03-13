@@ -3,6 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import '../services/storage_service.dart';
 import '../models/class_record.dart';
+import '../services/location_service.dart';
 
 class CheckOutScreen extends StatefulWidget {
   @override
@@ -19,12 +20,18 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
   final _feedbackController = TextEditingController();
 
   Future<void> _getLocation() async {
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
+    Position? position = await LocationService().getCurrentLocation();
+
+    if (position != null) {
+      setState(() => currentPosition = position);
+    } else {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Failed to get location. Please check permissions.'),
+        ),
+      );
     }
-    Position position = await Geolocator.getCurrentPosition();
-    setState(() => currentPosition = position);
   }
 
   void _submitData() async {
